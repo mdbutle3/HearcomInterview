@@ -9,10 +9,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
+//I never got this test to work :(
 namespace Herokuapp_Automation.Tests
 {
-    class NewWindowTest
+    class ExitIntentTest
     {
+
         private IWebDriver driver;
 
 
@@ -20,19 +23,15 @@ namespace Herokuapp_Automation.Tests
         public void startBrowser()
         {
             driver = new ChromeDriver("C:\\Program Files (x86)\\Google\\Chrome");
-            driver.Url = "https://the-internet.herokuapp.com/windows";
+            driver.Url = "https://the-internet.herokuapp.com/exit_intent";
         }
 
-        //clicks the button and ensures that the driver has 1 more window than it did before clickign the button
+        //Tries to move cursor out of window to make popup show up never got this to work though :(
         [Test]
-        public void OpenNewTab()
+        public void UnfocusTest()
         {
-            NewWindowPage page = new NewWindowPage(driver);
-            int NumOfWindowHandlesStart = driver.WindowHandles.Count;
-            page.clickOpenNewWindow();
-            int NumOfWindowHandlesEnd = driver.WindowHandles.Count;
-            Assert.AreEqual(NumOfWindowHandlesEnd, NumOfWindowHandlesStart + 1);
-
+            ExitIntentPage exit = new ExitIntentPage(driver);
+            exit.LeavePage();
         }
 
 

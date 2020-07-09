@@ -19,6 +19,7 @@ namespace Herokuapp_Automation
             this.driver = driver;
         }
 
+        //clicks the header to sort
         public Boolean SortExample1LastName()
         {
             IWebElement table1 = driver.FindElement(By.Id("table1"));
@@ -27,6 +28,7 @@ namespace Herokuapp_Automation
             return lastNameSorted;
         }
 
+        //clicks the header to sort
         public Boolean SortExample2FirstName()
         {
             IWebElement table1 = driver.FindElement(By.Id("table2"));
@@ -35,12 +37,14 @@ namespace Herokuapp_Automation
             return lastNameSorted;
         }
 
+        //gets the table of last names
         public IList<IWebElement> getExample1LastNames()
         {
             IWebElement table1 = driver.FindElement(By.Id("table1"));
             return table1.FindElements(By.XPath(".//tbody/tr/td[1]"));
         }
 
+        //gets the table of first names.
         public IList<IWebElement> getExample2FirstNames()
         {
             IWebElement table1 = driver.FindElement(By.Id("table1"));

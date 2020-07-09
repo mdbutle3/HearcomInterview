@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-//Command to run tests with output XML
-// C:\Users\mdbut>dotnet test "C:\Users\mdbut\source\repos\NewRepo\Herokuapp Automation\Herokuapp Automation\bin\Debug\netcoreapp3.1\HerokuappAutomation.dll" -l:trx;LogFileName=C:\temp\TestOutput.xml
 
 
 namespace Herokuapp_Automation.Tests
@@ -26,6 +24,7 @@ namespace Herokuapp_Automation.Tests
             driver = new ChromeDriver("C:\\Program Files (x86)\\Google\\Chrome");
         }
 
+        //Tests logging in with proper credentials and makes sure that user is authenticated
         [Test]
         public void LoginTestSuccess()
         {
@@ -38,6 +37,7 @@ namespace Herokuapp_Automation.Tests
             Assert.AreEqual("You logged into a secure area!\r\n×", messageText);
         }
 
+        //Tests logging in with the wrong username and makes sure the message says it has the wrong username
         [Test]
         public void LoginTestWrongUserName()
         {
@@ -45,11 +45,13 @@ namespace Herokuapp_Automation.Tests
             LoginPage login = new LoginPage(driver);
             login.UserName = "Tomsmith";
             login.Password = "SuperSecretPassword!";
+            //tries to sign in
             login.Submit();
             string messageText = login.getMessage();
             Assert.AreEqual("Your username is invalid!\r\n×", messageText);
         }
 
+        //Tests logging in with the wrong password and makes sure that the message says it has the wrong password
         [Test]
         public void LoginTestWrongPassword()
         {

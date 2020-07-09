@@ -24,13 +24,16 @@ namespace Herokuapp_Automation.Tests
             driver.Url = "https://the-internet.herokuapp.com/tables";
         }
 
+        //Sorts the last names and ensures they are in alphabetical order then it resorts to descending order and validates they are in descending alphabetical order
         [Test]
         public void SortLastNameExample1()
         {
             DataTablesPage tablespage = new DataTablesPage(driver);
+            //sorts last names in table 1 by alphabetical order
             tablespage.SortExample1LastName();
             IList<IWebElement> elements = tablespage.getExample1LastNames();
             Assert.True(areAlphabetical(elements));
+            //sorts last names in table 1 by descending alphabetical order
             tablespage.SortExample1LastName();
             elements = tablespage.getExample1LastNames();
             Assert.True(areAlphabetical(elements, false));
@@ -41,9 +44,11 @@ namespace Herokuapp_Automation.Tests
         public void SortFirstNameExample2()
         {
             DataTablesPage tablespage = new DataTablesPage(driver);
+            //sorts first names in table 2 by alphabetical order
             tablespage.SortExample2FirstName();
             IList<IWebElement> elements = tablespage.getExample2FirstNames();
             Assert.True(areAlphabetical(elements));
+            //Sorts first names in table 2 by descending alphabetical order
             tablespage.SortExample2FirstName();
             elements = tablespage.getExample2FirstNames();
             Assert.True(areAlphabetical(elements, false));

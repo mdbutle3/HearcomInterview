@@ -18,6 +18,7 @@ namespace Herokuapp_Automation
             this.driver = driver;
         }
 
+        //clicks on the open new window button
         public void clickOpenNewWindow()
         {
             driver.FindElement(By.XPath("//*[@id='content']/div/a")).Click();

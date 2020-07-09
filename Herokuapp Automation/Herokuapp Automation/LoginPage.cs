@@ -23,6 +23,7 @@ namespace Herokuapp_Automation
             {
                 return UserName;
             }
+            //inputs the text to the username field
             set
             {
                 driver.FindElement(By.Id("username")).SendKeys(value);
@@ -36,6 +37,7 @@ namespace Herokuapp_Automation
             {
                 return Password;
             }
+            //inputs the text to the password field
             set
             {
                 driver.FindElement(By.Id("password")).SendKeys(value);
@@ -43,16 +45,20 @@ namespace Herokuapp_Automation
             }
         }
 
+
         public LoginPage(IWebDriver driver)
         {
             this.driver = driver;
         }
 
+        //submits the credentials
         public void Submit()
         {
             driver.FindElement(By.ClassName("radius")).Click();
             return;
         }
+
+        //returns the notification message
         public string getMessage()
         {
 
