@@ -55,7 +55,8 @@ namespace Herokuapp_Automation.Tests
         }
 
         //returns true if sorted correctly. It will default to ascending order but if you add a value of false it will check if they are descending values
-        //This won't work if the values are the same need to fix that.
+        //Ugly way of checking if values are equal but it works. Fix later.
+        //This should be in a helper
         public Boolean areAlphabetical(IList<IWebElement> list, Boolean ascending = true)
         {
             int asc = 1;
@@ -65,7 +66,7 @@ namespace Herokuapp_Automation.Tests
             }
             for (int i = 0; i < list.Count - 1; i++)
             {
-                if (StringComparer.Ordinal.Compare(list[i].Text, list[i + 1].Text) == asc)
+                if ((StringComparer.Ordinal.Compare(list[i].Text, list[i + 1].Text) == asc) || (StringComparer.Ordinal.Compare(list[i].Text, list[i + 1].Text) == asc))
                 {
                     return false;
                 }
