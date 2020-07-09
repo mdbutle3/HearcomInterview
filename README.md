@@ -14,3 +14,5 @@ dotnet test "C:\Users\mdbut\source\repos\NewRepo\Herokuapp Automation\Herokuapp 
 
 
 The report can be found at the path and file name that are specified on the command line.
+
+I have checked in examples of the Reports for my 2 solutions. They are named APITestOutPut.xml and UITestOutput.xml
